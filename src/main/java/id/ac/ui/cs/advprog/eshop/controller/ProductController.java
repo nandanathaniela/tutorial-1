@@ -35,5 +35,9 @@ public class ProductController {
         model.addAttribute("products", allProducts);
         return "productList";
     }
-    
+
+    @PostMapping("/edit")
+    public String editProduct(@ModelAttribute Product product, Model model){
+        return "";
+    }
 }
