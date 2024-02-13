@@ -17,47 +17,42 @@ public class ProductController {
     private ProductService service;
 
     @GetMapping("/create")
-    public String createProductPage(Model model){
+    public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
         return "createProduct";
     }
 
     @PostMapping("/create")
-    public String createProductPost(@ModelAttribute Product product, Model model){
-        service.create(product);
-        return "redirect:/product";
+    public String createProductPost(@ModelAttribute Product product, Model model) {
+        service.createProduct(product);
+        return "redirect:list";
     }
 
-    @GetMapping("")
-    public String productListPage(Model model){
+    @GetMapping("/list")
+    public String productListPage(Model model) {
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
         return "productList";
     }
 
     @GetMapping("/edit/{id}")
-    public String editProduct(@PathVariable String id, Model model) {
+    public String editProductPage(@PathVariable("id") String id, Model model) {
         Product product = service.findById(id);
-        if (product != null) {
-            model.addAttribute("product", product);
-            return "editProduct";
-        } else {
-            return "redirect:/product";
-        }
+        model.addAttribute("product", product);
+        return "editProduct";
     }
 
-
-    @PostMapping("/edit/{id}")
-    public String editProduct( @ModelAttribute Product product) {
-        service.update(product);
-        return "redirect:/product";
+    @DeleteMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") String id, Model model) {
+        service.deleteProduct(id);
+        return "redirect:../list";
     }
 
-    @PostMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable String id) {
-        Product product = service.findById(id);
-        service.delete(product);
-        return "redirect:/product";
+    @PutMapping(value = "/edit/{id}")
+    public String editProduct(@PathVariable("id") String id, @ModelAttribute Product product, Model model) {
+        product.setProductId(id);
+        service.editProduct(product);
+        return "redirect:../list";
     }
 }
