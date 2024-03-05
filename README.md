@@ -34,3 +34,12 @@ You have implemented a CI/CD process that automatically runs the test suites, an
    - Tanpa OCP dan DIP: Kode menjadi kaku dan sulit untuk diperbarui atau dites, dengan perubahan kecil berpotensi memerlukan penyesuaian besar.
    - Tanpa SRP: Kode menjadi rumit dan sulit untuk development, dengan perubahan pada satu bagian berpotensi mempengaruhi banyak bagian lain.
    - Tanpa LSP dan ISP: Kurangnya fleksibilitas dan dependensi tinggi antarkomponen, membuat sulit menambah atau mengubah fitur tanpa revisi.
+
+
+## Module 4
+1) Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+   - Cara saya memakai TDD sudah cukup bagus. Tes-tes yang saya bikin sudah cukup untuk memastikan program berjalan dengan baik, dan juga meyakini saya untuk mengubah-ubah kode.
+   - Soal maintainability, tes-tes saya memabantu buat rapihin dan desain yang lebih baik. Kode saya juga menyesuaikan jumlah tes unit dan integrasi berdasarkan masukan.
+   - Kesimpulannya, walaupun cara TDD saya sudah efektif, saya juga mempersiapkan dan memperbaiki, terutama untuk mempercepat tes integrasi dan memastikan semuanya berjalan dengan lancar.
+2) You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.
+   - Tes saya sudah termasuk cepat dan tidak menganggu kode lain, mandiri tanpa bergantung atau mengubah tes lain, konsisten dalam hasilnya, saya memakai Test Double untuk fungsi lain, dan sudah menutupi semua kemungkinan, baik yang jalan dan error.
